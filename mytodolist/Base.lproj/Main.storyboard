@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="klV-02-3Cp">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -8,45 +8,99 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparta" translatesAutoresizingMaskIntoConstraints="NO" id="OHd-He-hc2">
-                                <rect key="frame" x="54.666666666666657" y="159" width="284" height="159"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbE-LV-Un8">
-                                <rect key="frame" x="138.33333333333334" y="421" width="116.66666666666666" height="35"/>
+                                <rect key="frame" x="138.33333333333334" y="443" width="116.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="할일 확인하기"/>
+                                <connections>
+                                    <segue destination="EeI-CZ-JoO" kind="show" id="9W4-0x-SB4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-JT-iwe">
-                                <rect key="frame" x="138.33333333333334" y="506" width="116.66666666666666" height="35"/>
+                                <rect key="frame" x="138.33333333333334" y="528" width="116.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="완료한일 보기"/>
+                                <connections>
+                                    <segue destination="5av-TE-34u" kind="show" id="wcz-fY-v67"/>
+                                </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparta" translatesAutoresizingMaskIntoConstraints="NO" id="OHd-He-hc2">
+                                <rect key="frame" x="54.666666666666657" y="207" width="284" height="161"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="OHd-He-hc2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="IbV-3a-zqH"/>
                             <constraint firstItem="OHd-He-hc2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="LxS-50-DEa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OHd-He-hc2" secondAttribute="bottom" constant="500" id="P4z-Pd-RG6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OHd-He-hc2" secondAttribute="bottom" constant="450" id="P4z-Pd-RG6"/>
                             <constraint firstItem="XCM-JT-iwe" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RHO-Ap-FzX"/>
                             <constraint firstItem="TbE-LV-Un8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="RfG-Ht-gjs"/>
-                            <constraint firstItem="OHd-He-hc2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="XAr-KW-KKH"/>
                             <constraint firstItem="XCM-JT-iwe" firstAttribute="top" secondItem="TbE-LV-Un8" secondAttribute="bottom" constant="50" id="jLa-1w-5YV"/>
                             <constraint firstItem="TbE-LV-Un8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zlb-x3-kdI"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="KSh-0V-3HS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51.145038167938928" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="-1176" y="-15"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CWc-ge-bRy">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJ7-ef-Ejc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="klV-02-3Cp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hX7-ym-ZNe">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SI1-NS-Jg7"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1908" y="-15"/>
+        </scene>
+        <!--Todo List View Controller-->
+        <scene sceneID="Yos-lF-ptb">
+            <objects>
+                <viewController id="EeI-CZ-JoO" customClass="TodoListViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tDL-bS-aP8">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hwI-bC-xNy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u6n-AC-gqp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p62-De-HFX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-448" y="-15"/>
+        </scene>
+        <!--Done List View Controller-->
+        <scene sceneID="8n6-zX-otE">
+            <objects>
+                <viewController id="5av-TE-34u" customClass="DoneListViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hIR-OO-Cdo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uaB-xU-s77"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="C6v-af-Lu4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GyK-7U-uPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-448" y="670"/>
         </scene>
     </scenes>
     <resources>
