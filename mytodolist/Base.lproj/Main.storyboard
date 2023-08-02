@@ -28,9 +28,6 @@
                                 <rect key="frame" x="138.33333333333334" y="528" width="116.66666666666666" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="완료한일 보기"/>
-                                <connections>
-                                    <segue destination="5av-TE-34u" kind="show" id="wcz-fY-v67"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparta" translatesAutoresizingMaskIntoConstraints="NO" id="OHd-He-hc2">
                                 <rect key="frame" x="54.666666666666657" y="207" width="284" height="161"/>
@@ -49,6 +46,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KSh-0V-3HS"/>
+                    <connections>
+                        <outlet property="doneBtn" destination="XCM-JT-iwe" id="z62-S3-tZD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,17 +70,66 @@
             </objects>
             <point key="canvasLocation" x="-1908" y="-15"/>
         </scene>
-        <!--Todo List View Controller-->
+        <!--할일-->
         <scene sceneID="Yos-lF-ptb">
             <objects>
                 <viewController id="EeI-CZ-JoO" customClass="TodoListViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tDL-bS-aP8">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="u61-cK-ecw">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoListCell" id="OuU-mj-HGA" customClass="TodoListTableViewCell" customModule="mytodolist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OuU-mj-HGA" id="AfU-xO-f2a">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-dV-YsC">
+                                                    <rect key="frame" x="35" y="11.333333333333336" width="244" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Fk-p5-jVc">
+                                                    <rect key="frame" x="329" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5Fk-p5-jVc" firstAttribute="leading" secondItem="wTY-dV-YsC" secondAttribute="trailing" constant="50" id="0cZ-00-fla"/>
+                                                <constraint firstItem="wTY-dV-YsC" firstAttribute="leading" secondItem="AfU-xO-f2a" secondAttribute="leadingMargin" constant="15" id="NPg-vJ-3cg"/>
+                                                <constraint firstItem="wTY-dV-YsC" firstAttribute="centerY" secondItem="AfU-xO-f2a" secondAttribute="centerY" id="Opj-fW-9ne"/>
+                                                <constraint firstItem="5Fk-p5-jVc" firstAttribute="centerY" secondItem="AfU-xO-f2a" secondAttribute="centerY" id="OzH-QZ-lCz"/>
+                                                <constraint firstAttribute="trailing" secondItem="5Fk-p5-jVc" secondAttribute="trailing" constant="15" id="wky-bw-sJg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="todoSwitch" destination="5Fk-p5-jVc" id="ymM-hv-Stl"/>
+                                            <outlet property="todoTitleLabel" destination="wTY-dV-YsC" id="awt-J4-YVJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="hwI-bC-xNy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u61-cK-ecw" firstAttribute="top" secondItem="hwI-bC-xNy" secondAttribute="top" id="GG6-E8-yf5"/>
+                            <constraint firstItem="hwI-bC-xNy" firstAttribute="trailing" secondItem="u61-cK-ecw" secondAttribute="trailing" id="I4p-hP-SuB"/>
+                            <constraint firstItem="u61-cK-ecw" firstAttribute="leading" secondItem="hwI-bC-xNy" secondAttribute="leading" id="Xu6-sX-bdg"/>
+                            <constraint firstItem="hwI-bC-xNy" firstAttribute="bottom" secondItem="u61-cK-ecw" secondAttribute="bottom" id="hDB-cv-ZxJ"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="u6n-AC-gqp"/>
+                    <navigationItem key="navigationItem" title="할일" style="editor" id="u6n-AC-gqp">
+                        <barButtonItem key="rightBarButtonItem" title="추가" style="plain" id="iiF-Ag-M8d"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="todoTableView" destination="u61-cK-ecw" id="7z8-9t-TP7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p62-De-HFX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
