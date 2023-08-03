@@ -12,6 +12,8 @@ class TodoListTableViewCell: UITableViewCell {
     @IBOutlet weak var todoTitleLabel: UILabel!
     @IBOutlet weak var todoSwitch: UISwitch!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
