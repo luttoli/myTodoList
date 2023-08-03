@@ -82,7 +82,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="todoListCell" id="OuU-mj-HGA" customClass="TodoListTableViewCell" customModule="mytodolist" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="todoListCell" id="OuU-mj-HGA" customClass="TodoListTableViewCell" customModule="mytodolist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OuU-mj-HGA" id="AfU-xO-f2a">
@@ -125,7 +125,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="할일" style="editor" id="u6n-AC-gqp">
-                        <barButtonItem key="rightBarButtonItem" title="추가" style="plain" id="iiF-Ag-M8d"/>
+                        <barButtonItem key="rightBarButtonItem" title="추가" style="plain" id="iiF-Ag-M8d">
+                            <connections>
+                                <action selector="addTodo:" destination="EeI-CZ-JoO" id="0yn-cV-a3e"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="todoTableView" destination="u61-cK-ecw" id="7z8-9t-TP7"/>
