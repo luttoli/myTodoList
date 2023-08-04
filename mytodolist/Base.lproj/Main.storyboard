@@ -57,7 +57,6 @@
         <!--Navigation Controller-->
         <scene sceneID="CWc-ge-bRy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TJ7-ef-Ejc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="klV-02-3Cp" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hX7-ym-ZNe">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -67,6 +66,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SI1-NS-Jg7"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJ7-ef-Ejc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1908" y="-15"/>
         </scene>
@@ -82,21 +82,24 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="todoListCell" id="OuU-mj-HGA" customClass="TodoListTableViewCell" customModule="mytodolist" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="todoListCell" rowHeight="50" id="OuU-mj-HGA" customClass="TodoListTableViewCell" customModule="mytodolist" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OuU-mj-HGA" id="AfU-xO-f2a">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-dV-YsC">
-                                                    <rect key="frame" x="35" y="11.333333333333336" width="244" height="21"/>
+                                                    <rect key="frame" x="35" y="14.999999999999998" width="244" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5Fk-p5-jVc">
-                                                    <rect key="frame" x="329" y="6.3333333333333321" width="51" height="30.999999999999996"/>
+                                                    <rect key="frame" x="329" y="9.6666666666666643" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="doneSwitchClicked:" destination="OuU-mj-HGA" eventType="valueChanged" id="sHF-qX-I7a"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -113,6 +116,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="EeI-CZ-JoO" id="pCG-2u-pJB"/>
+                                    <outlet property="delegate" destination="EeI-CZ-JoO" id="efW-if-cNr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hwI-bC-xNy"/>
@@ -125,19 +132,36 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="할일" style="editor" id="u6n-AC-gqp">
-                        <barButtonItem key="rightBarButtonItem" title="추가" style="plain" id="iiF-Ag-M8d">
+                        <barButtonItem key="rightBarButtonItem" title="추가" id="iiF-Ag-M8d">
                             <connections>
-                                <action selector="addTodo:" destination="EeI-CZ-JoO" id="0yn-cV-a3e"/>
+                                <action selector="addTodoClicked:" destination="EeI-CZ-JoO" id="0yn-cV-a3e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="todoTableView" destination="u61-cK-ecw" id="7z8-9t-TP7"/>
+                        <segue destination="iPY-t1-NQN" kind="presentation" id="hD0-gy-ltV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p62-De-HFX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-448" y="-15"/>
+        </scene>
+        <!--Todo Detail View Controller-->
+        <scene sceneID="ocu-14-Ak5">
+            <objects>
+                <viewController id="iPY-t1-NQN" customClass="TodoDetailViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bap-X4-dxE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9V8-4F-luQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="b8r-jj-4iE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5gw-8E-voH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="271" y="-15"/>
         </scene>
         <!--Done List View Controller-->
         <scene sceneID="8n6-zX-otE">

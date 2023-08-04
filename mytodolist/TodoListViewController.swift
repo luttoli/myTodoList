@@ -12,8 +12,8 @@ class TodoListViewController: UIViewController {
     @IBOutlet weak var todoTableView: UITableView!
     
     var todoList: [String] = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", ]
-    var todoSwitchList : [Bool] = []
-    
+    var switchList: [Bool] = [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +21,8 @@ class TodoListViewController: UIViewController {
         todoTableView.dataSource = self
     }
     
-    @IBAction func addTodo(_ sender: Any) {
+    //추가 버튼 클릭 시
+    @IBAction func addTodoClicked(_ sender: Any) {
         let addTodoalert = UIAlertController(title: "할일 추가", message: "", preferredStyle: .alert)
         
         //얼럿의 취소버튼
@@ -32,9 +33,11 @@ class TodoListViewController: UIViewController {
             guard let addTodotext = addTodoalert.textFields?[0].text else { return }
             //그걸 todoList 배열에 추가한다.
             self.todoList.append(addTodotext)
+            self.switchList.append(false)
             //추가 버튼이 눌릴때마다 TableView를 reload한다
             self.todoTableView.reloadData()
             print(addTodotext)
+            print(self.switchList)
             print(self.todoList)
         }
         
@@ -62,11 +65,13 @@ extension TodoListViewController: UITableViewDataSource {
     //TableView Cell의 내용
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "todoListCell", for: indexPath) as? TodoListTableViewCell else {
-            return UITableViewCell() }
+            return UITableViewCell()
+        }
         
         cell.todoTitleLabel.text = self.todoList[indexPath.row]
-//        cell.todoSwitch.isOn = self.todoSwitchList[indexPath.row]
-        
+        cell.todoSwitch.isOn = self.switchList[indexPath.row]
+//        cell.delegate = self
+    
         return cell
     }
 }
