@@ -8,7 +8,9 @@
 import UIKit
 
 class TodoListTableViewCell: UITableViewCell {
-
+    var todolists = [TodoList]()
+    
+    
     @IBOutlet weak var todoTitleLabel: UILabel!
     @IBOutlet weak var todoSwitch: UISwitch!
     
