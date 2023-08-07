@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbE-LV-Un8">
-                                <rect key="frame" x="138.33333333333334" y="443" width="116.66666666666666" height="35"/>
+                                <rect key="frame" x="136" y="443" width="121" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="할일 확인하기"/>
+                                <buttonConfiguration key="configuration" style="plain" title="할 일 확인하기"/>
                                 <connections>
                                     <segue destination="EeI-CZ-JoO" kind="show" id="9W4-0x-SB4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCM-JT-iwe">
-                                <rect key="frame" x="138.33333333333334" y="528" width="116.66666666666666" height="35"/>
+                                <rect key="frame" x="136" y="528" width="121" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="완료한일 보기"/>
+                                <buttonConfiguration key="configuration" style="plain" title="완료한 일 보기"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sparta" translatesAutoresizingMaskIntoConstraints="NO" id="OHd-He-hc2">
                                 <rect key="frame" x="54.666666666666657" y="207" width="284" height="161"/>
@@ -70,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="-1908" y="-15"/>
         </scene>
-        <!--할일-->
+        <!--할 일-->
         <scene sceneID="Yos-lF-ptb">
             <objects>
                 <viewController id="EeI-CZ-JoO" customClass="TodoListViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-dV-YsC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-dV-YsC">
                                                     <rect key="frame" x="35" y="14.999999999999998" width="244" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -113,6 +113,7 @@
                                         <connections>
                                             <outlet property="todoSwitch" destination="5Fk-p5-jVc" id="ymM-hv-Stl"/>
                                             <outlet property="todoTitleLabel" destination="wTY-dV-YsC" id="awt-J4-YVJ"/>
+                                            <segue destination="iPY-t1-NQN" kind="show" identifier="detail" id="xro-Jg-GB2"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,7 +132,7 @@
                             <constraint firstItem="hwI-bC-xNy" firstAttribute="bottom" secondItem="u61-cK-ecw" secondAttribute="bottom" id="hDB-cv-ZxJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="할일" style="editor" id="u6n-AC-gqp">
+                    <navigationItem key="navigationItem" title="할 일" style="editor" id="u6n-AC-gqp">
                         <barButtonItem key="rightBarButtonItem" title="추가" id="iiF-Ag-M8d">
                             <connections>
                                 <action selector="addTodoClicked:" destination="EeI-CZ-JoO" id="0yn-cV-a3e"/>
@@ -140,7 +141,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="todoTableView" destination="u61-cK-ecw" id="7z8-9t-TP7"/>
-                        <segue destination="iPY-t1-NQN" kind="presentation" id="hD0-gy-ltV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p62-De-HFX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -152,12 +152,27 @@
             <objects>
                 <viewController id="iPY-t1-NQN" customClass="TodoDetailViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bap-X4-dxE">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEp-VH-5V0">
+                                <rect key="frame" x="180" y="173" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="9V8-4F-luQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gEp-VH-5V0" firstAttribute="centerX" secondItem="Bap-X4-dxE" secondAttribute="centerX" id="xDi-OG-TLh"/>
+                            <constraint firstItem="gEp-VH-5V0" firstAttribute="top" secondItem="9V8-4F-luQ" secondAttribute="top" constant="70" id="xwK-In-bHT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b8r-jj-4iE"/>
+                    <connections>
+                        <outlet property="todoTitleLabel" destination="gEp-VH-5V0" id="HmL-4m-eK1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gw-8E-voH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

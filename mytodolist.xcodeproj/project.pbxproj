@@ -21,7 +21,7 @@
 		B816C56C2A7A7A3B00A3290F /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816C56B2A7A7A3B00A3290F /* TodoListViewController.swift */; };
 		B816C56E2A7A7A9E00A3290F /* DoneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816C56D2A7A7A9E00A3290F /* DoneListViewController.swift */; };
 		B8D0C9BB2A7D32BB007689A7 /* TodoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9BA2A7D32BB007689A7 /* TodoDetailViewController.swift */; };
-		B8D0C9BD2A7E1009007689A7 /* todoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9BC2A7E1009007689A7 /* todoList.swift */; };
+		B8D0C9BD2A7E1009007689A7 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9BC2A7E1009007689A7 /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +60,7 @@
 		B816C56B2A7A7A3B00A3290F /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		B816C56D2A7A7A9E00A3290F /* DoneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneListViewController.swift; sourceTree = "<group>"; };
 		B8D0C9BA2A7D32BB007689A7 /* TodoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetailViewController.swift; sourceTree = "<group>"; };
-		B8D0C9BC2A7E1009007689A7 /* todoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoList.swift; sourceTree = "<group>"; };
+		B8D0C9BC2A7E1009007689A7 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +114,7 @@
 				B816C52E2A79282700A3290F /* AppDelegate.swift */,
 				B816C5302A79282700A3290F /* SceneDelegate.swift */,
 				B816C5322A79282700A3290F /* HomeViewController.swift */,
-				B8D0C9BC2A7E1009007689A7 /* todoList.swift */,
+				B8D0C9BC2A7E1009007689A7 /* Todo.swift */,
 				B816C56B2A7A7A3B00A3290F /* TodoListViewController.swift */,
 				B816C5692A7A795800A3290F /* TodoListTableViewCell.swift */,
 				B8D0C9BA2A7D32BB007689A7 /* TodoDetailViewController.swift */,
@@ -284,7 +284,7 @@
 				B816C56A2A7A795800A3290F /* TodoListTableViewCell.swift in Sources */,
 				B816C5392A79282700A3290F /* mytodolist.xcdatamodeld in Sources */,
 				B816C56E2A7A7A9E00A3290F /* DoneListViewController.swift in Sources */,
-				B8D0C9BD2A7E1009007689A7 /* todoList.swift in Sources */,
+				B8D0C9BD2A7E1009007689A7 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

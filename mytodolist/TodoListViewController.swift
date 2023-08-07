@@ -10,7 +10,7 @@ import UIKit
 class TodoListViewController: UIViewController {
     
     //구조체 받아오기
-    var todolists = [TodoList]()
+    var todo: Todo?
 
     @IBOutlet weak var todoTableView: UITableView!
 
@@ -19,6 +19,15 @@ class TodoListViewController: UIViewController {
         
         //TableView 불러오기
         todoTableView.dataSource = self
+        todoTableView.delegate = self
+        todoTableView.reloadData()
+    }
+    
+    //
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.todoTableView?.reloadData()
     }
     
     //추가 버튼 클릭 시
@@ -32,18 +41,21 @@ class TodoListViewController: UIViewController {
             //addTodoalert의 textFields[0]번째부터 채워라
             guard let addTodotext = addTodoalert.textFields?[0].text else { return }
             
-            //TodoList 구조체가 가진 title에 addTodotext, done에 false를
-            let todolist = TodoList(title: addTodotext, done: false)
+            //Todo 구조체가 가진 id에 ㅁㅁㅁ title에 addTodotext, iscompleted에 false를
+            let newlist = Todo(id: (TodoList.justList.last?.id ?? -1) + 1, title: addTodotext, iscompleted: false)
             
-            //그걸 todoList 배열에 추가한다.
-            self.todolists.append(todolist)
+            //그걸 TodoList에 todoList 배열에 추가한다.
+            TodoList.justList.append(newlist)
             
             //추가 버튼이 눌릴때마다 TableView를 reload한다
-            self.todoTableView.reloadData()
+//            self.todoTableView.reloadData()
+            //추가 애니메이션? 
+            self.todoTableView?.insertRows(at: [IndexPath(row: TodoList.justList.count-1, section: 0)], with: .automatic)
             
             //확인할라고(나중에 지우지 뭐)
             print(addTodotext)
-            print(self.todolists)
+            print(TodoList.justList)
+            print(newlist)
         })
         
         //버튼 노출
@@ -58,13 +70,24 @@ class TodoListViewController: UIViewController {
             tf.placeholder = "할일을 입력하고 추가하세요."
         }
     }
+
+    //Cell 클릭 시
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? TodoListTableViewCell else { return }
+        if segue.identifier == "detail" {
+            if let vc = segue.destination as? TodoDetailViewController {
+                vc.todo = cell.todo
+            }
+        }
+    }
+    
 }
 
 //TableView 상세적용
 extension TodoListViewController: UITableViewDataSource {
     //TableView 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todolists.count
+        return TodoList.justList.count
     }
     
     //TableView Cell의 내용
@@ -73,12 +96,18 @@ extension TodoListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let todolist = self.todolists[indexPath.row]
-        cell.todoTitleLabel.text = todolist.title
-        cell.todoSwitch.isOn = todolist.done
-    
+//        let todolist = self.todos[indexPath.row]
+//        cell.todoTitleLabel.text = todolist.title
+        cell.setTodo(TodoList.justList[indexPath.row])
         return cell
     }
 }
 
-//구조체 만들어서 title만 적용
+//TableViewCell 클릭 시
+extension TodoListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        todoTableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+

@@ -8,8 +8,7 @@
 import UIKit
 
 class TodoListTableViewCell: UITableViewCell {
-    var todolists = [TodoList]()
-    
+    var todo: Todo?
     
     @IBOutlet weak var todoTitleLabel: UILabel!
     @IBOutlet weak var todoSwitch: UISwitch!
@@ -27,12 +26,28 @@ class TodoListTableViewCell: UITableViewCell {
 
     //done switch 클릭 시
     @IBAction func doneSwitchClicked(_ sender: Any) {
-        if self.todoSwitch.isOn {
-            todoTitleLabel.attributedText = todoTitleLabel.text?.strikeThrough()
+        guard let todo else { return }
+        if todoSwitch.isOn {
+            todoTitleLabel?.text = nil
+            todoTitleLabel?.attributedText = todo.title.strikeThrough()
+            //
         } else {
-            todoTitleLabel.text = todoTitleLabel.text
-            
+            todoTitleLabel?.attributedText = nil
+            todoTitleLabel?.text = todo.title
         }
+    }
+    
+    func setTodo(_ _todo: Todo) {
+        todo = _todo
+        guard let todo else { return }
+        if todo.iscompleted {
+            todoTitleLabel?.text = nil
+            todoTitleLabel?.attributedText = todo.title.strikeThrough()
+        } else {
+            todoTitleLabel?.attributedText = nil
+            todoTitleLabel?.text = todo.title
+        }
+        todoSwitch.isOn = todo.iscompleted
     }
 }
 
