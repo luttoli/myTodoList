@@ -164,16 +164,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="completion status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uC4-Fv-lFs">
+                                <rect key="frame" x="128.66666666666666" y="244" width="135.99999999999997" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9V8-4F-luQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uC4-Fv-lFs" firstAttribute="centerX" secondItem="Bap-X4-dxE" secondAttribute="centerX" id="1vy-fV-jCX"/>
+                            <constraint firstItem="uC4-Fv-lFs" firstAttribute="top" secondItem="gEp-VH-5V0" secondAttribute="bottom" constant="50" id="eIP-8L-UkR"/>
                             <constraint firstItem="gEp-VH-5V0" firstAttribute="centerX" secondItem="Bap-X4-dxE" secondAttribute="centerX" id="xDi-OG-TLh"/>
                             <constraint firstItem="gEp-VH-5V0" firstAttribute="top" secondItem="9V8-4F-luQ" secondAttribute="top" constant="70" id="xwK-In-bHT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b8r-jj-4iE"/>
                     <connections>
+                        <outlet property="CompletionLabel" destination="uC4-Fv-lFs" id="YD6-v6-UBm"/>
                         <outlet property="DetialTitleLabel" destination="gEp-VH-5V0" id="HmL-4m-eK1"/>
                     </connections>
                 </viewController>

@@ -63,4 +63,10 @@ extension String {
     }
 }
 
-
+extension Date {
+    func date() {
+        let nowDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd"
+    }
+}
