@@ -8,6 +8,7 @@
 import UIKit
 
 class TodoListTableViewCell: UITableViewCell {
+    
     var todo: Todo?
     
     @IBOutlet weak var todoTitleLabel: UILabel!
@@ -15,13 +16,10 @@ class TodoListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     //done switch 클릭 시
@@ -30,24 +28,28 @@ class TodoListTableViewCell: UITableViewCell {
         if todoSwitch.isOn {
             todoTitleLabel?.text = nil
             todoTitleLabel?.attributedText = todo.title.strikeThrough()
-            //
+            TodoList.completed(todo: todo, iscompleted: true)
         } else {
             todoTitleLabel?.attributedText = nil
             todoTitleLabel?.text = todo.title
+            TodoList.completed(todo: todo, iscompleted: false)
         }
+        print("--------------------")
+        print(TodoList.justList)
     }
     
+    //완료상태이면 todoTitleLabel의 텍스트 대신 attributedText에 취소선 긋고 아니면 그냥 todo.title
     func setTodo(_ _todo: Todo) {
         todo = _todo
         guard let todo else { return }
-        if todo.iscompleted {
+        if todo.isCompleted {
             todoTitleLabel?.text = nil
             todoTitleLabel?.attributedText = todo.title.strikeThrough()
         } else {
             todoTitleLabel?.attributedText = nil
             todoTitleLabel?.text = todo.title
         }
-        todoSwitch.isOn = todo.iscompleted
+        todoSwitch.isOn = todo.isCompleted
     }
 }
 

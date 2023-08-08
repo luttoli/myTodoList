@@ -11,11 +11,11 @@ class TodoDetailViewController: UIViewController {
     
     var todo: Todo?
     
-    @IBOutlet weak var todoTitleLabel: UILabel!
+    @IBOutlet weak var DetialTitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        todoTitleLabel.text = todo?.title
+        DetialTitleLabel.text = todo?.title
     }
 }

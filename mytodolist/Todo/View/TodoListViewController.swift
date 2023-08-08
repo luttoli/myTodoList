@@ -41,21 +41,24 @@ class TodoListViewController: UIViewController {
             //addTodoalert의 textFields[0]번째부터 채워라
             guard let addTodotext = addTodoalert.textFields?[0].text else { return }
             
-            //Todo 구조체가 가진 id에 ㅁㅁㅁ title에 addTodotext, iscompleted에 false를
-            let newlist = Todo(id: (TodoList.justList.last?.id ?? -1) + 1, title: addTodotext, iscompleted: false)
+            //Todo 구조체가 가진 id에 justList가 있는지 없는지 모르는 상태니까 해당 리스트의 마지막 id값에서 -1을 빼고 1을 더한 값을 id로, title에 addTodotext, iscompleted에 false를
+            let newlist = Todo(id: (TodoList.justList.last?.id ?? -1) + 1, title: addTodotext, isCompleted: false, dodate: "")
             
-            //그걸 TodoList에 todoList 배열에 추가한다.
+            //그걸 TodoList에 justList 배열에 추가한다.
             TodoList.justList.append(newlist)
             
-            //추가 버튼이 눌릴때마다 TableView를 reload한다
-//            self.todoTableView.reloadData()
             //추가 애니메이션? 
-            self.todoTableView?.insertRows(at: [IndexPath(row: TodoList.justList.count-1, section: 0)], with: .automatic)
+            self.todoTableView?.insertRows(at: [IndexPath(row: TodoList.justList.count - 1, section: 0)], with: .automatic)
             
             //확인할라고(나중에 지우지 뭐)
-            print(addTodotext)
+            print(TodoList.justList.count - 1)
+            print("--------------------")
+            print("입력: \(addTodotext)")
+            print("--------------------")
             print(TodoList.justList)
-            print(newlist)
+            print("--------------------")
+            print("새로운 입력: \(newlist)")
+            print("--------------------")
         })
         
         //버튼 노출
@@ -96,9 +99,9 @@ extension TodoListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-//        let todolist = self.todos[indexPath.row]
-//        cell.todoTitleLabel.text = todolist.title
+        //justList 배열을 순서대로 setTodo로 변경해서 cell에 넣는다?
         cell.setTodo(TodoList.justList[indexPath.row])
+        
         return cell
     }
 }
