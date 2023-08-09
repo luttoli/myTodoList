@@ -20,16 +20,16 @@ class TodoDetailViewController: UIViewController {
         DetialTitleLabel.text = todo?.title
         completion()
         print("------>   \(String(describing: todo?.isCompleted))")
-        CompletionLabel.text = String(describing: todo?.isCompleted)
+//        CompletionLabel.text = String(describing: todo?.isCompleted)
     }
     
     //완료여부에 따라 출력
     func completion() {
         guard let todo else { return }
         if todo.isCompleted == true {
-            CompletionLabel.text = String("완료함")
+            CompletionLabel.text = "완료함"
         } else {
-            CompletionLabel.text = String("완료전")
+            CompletionLabel.text = "완료전"
         }
 
     }
@@ -62,4 +62,26 @@ class TodoDetailViewController: UIViewController {
             tf.placeholder = "할일을 입력하고 추가하세요."
         }
     }
+    
+    //삭제하기
+    @IBAction func removeClicked(_ sender: Any) {
+        let removeAlert = UIAlertController(title: "진짜로 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        
+        //얼럿의 취소버튼
+        let removeCancelBtn = UIAlertAction(title: "취소", style: .cancel)
+        //얼럿의 확인버튼
+        let removeOKBtn = UIAlertAction(title: "삭제", style: .default) {[weak self] _ in
+            guard let self, let todo else { return }
+            TodoList.removeTodo(todo: todo)
+            self.navigationController?.popViewController(animated: true)
+        }
+        //버튼 노출
+        removeAlert.addAction(removeCancelBtn)
+        removeAlert.addAction(removeOKBtn)
+        
+        //얼럿 노출, 에니메이션 여부
+        self.present(removeAlert, animated: true)
+    }
+    
+    
 }

@@ -47,12 +47,13 @@ struct TodoList {
         }
     }
     
-    
     //삭제?
-    
+    static func removeTodo(todo: Todo) {
+        fullList.removeAll(where: { $0.id == todo.id })
+    }
 }
 
-//던페이지 리스트 개수
+//던페이지 리스트 개수 -
 //기기저장
-//삭제
+//삭제 -
 //시간?
