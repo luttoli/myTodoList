@@ -18,7 +18,7 @@ class TodoDetailViewController: UIViewController {
         super.viewDidLoad()
         
         DetialTitleLabel.text = todo?.title
-//        completion()
+        completion()
         print("------>   \(String(describing: todo?.isCompleted))")
         CompletionLabel.text = String(describing: todo?.isCompleted)
     }
@@ -31,7 +31,7 @@ class TodoDetailViewController: UIViewController {
         } else {
             CompletionLabel.text = String("완료전")
         }
-        
+
     }
     
     //타이틀 수정하기

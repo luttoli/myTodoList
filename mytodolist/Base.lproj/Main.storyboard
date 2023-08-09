@@ -224,6 +224,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ANe-eG-6lK" firstAttribute="centerY" secondItem="jhe-Td-GXC" secondAttribute="centerY" id="MYY-ow-1ec"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ANe-eG-6lK" secondAttribute="trailing" constant="20" symbolic="YES" id="fnf-z5-FKM"/>
                                                 <constraint firstItem="ANe-eG-6lK" firstAttribute="leading" secondItem="jhe-Td-GXC" secondAttribute="leadingMargin" constant="15" id="jOR-B4-gKb"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -243,9 +244,12 @@
                             <constraint firstItem="uaB-xU-s77" firstAttribute="trailing" secondItem="KRZ-th-uDp" secondAttribute="trailing" id="vHt-dO-YKk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="완료됨" id="C6v-af-Lu4"/>
+                    <navigationItem key="navigationItem" title="완료됨" id="C6v-af-Lu4">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="j1z-Xj-dDF"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="doneTableView" destination="KRZ-th-uDp" id="EGv-AF-P9K"/>
+                        <outlet property="listCount" destination="j1z-Xj-dDF" id="JuE-bD-4uI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyK-7U-uPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

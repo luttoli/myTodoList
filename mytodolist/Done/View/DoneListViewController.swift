@@ -12,12 +12,21 @@ class DoneListViewController: UIViewController {
     var todo: Todo?
     
     @IBOutlet weak var doneTableView: UITableView!
-
+    @IBOutlet weak var listCount: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         doneTableView.dataSource = self
         doneTableView.reloadData()
+        
+        //카운트 노출
+        listCount.title = countList()
+    }
+    
+    //카운트 노출
+    func countList() -> String {
+        String(TodoList.completList().count)
     }
 }
 
