@@ -138,7 +138,7 @@
                     <navigationItem key="navigationItem" title="할 일" style="editor" id="u6n-AC-gqp">
                         <barButtonItem key="rightBarButtonItem" title="추가" id="iiF-Ag-M8d">
                             <connections>
-                                <action selector="addTodoClicked:" destination="EeI-CZ-JoO" id="0yn-cV-a3e"/>
+                                <action selector="addClicked:" destination="EeI-CZ-JoO" id="0yn-cV-a3e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -180,9 +180,15 @@
                             <constraint firstItem="gEp-VH-5V0" firstAttribute="top" secondItem="9V8-4F-luQ" secondAttribute="top" constant="70" id="xwK-In-bHT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="b8r-jj-4iE"/>
+                    <navigationItem key="navigationItem" id="b8r-jj-4iE">
+                        <barButtonItem key="rightBarButtonItem" title="수정" style="plain" id="rbc-sm-9nC">
+                            <connections>
+                                <action selector="editClicked:" destination="iPY-t1-NQN" id="Mqz-2a-S0k"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="CompletionLabel" destination="uC4-Fv-lFs" id="YD6-v6-UBm"/>
+                        <outlet property="CompletionLabel" destination="uC4-Fv-lFs" id="kxp-1h-doM"/>
                         <outlet property="DetialTitleLabel" destination="gEp-VH-5V0" id="HmL-4m-eK1"/>
                     </connections>
                 </viewController>

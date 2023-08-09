@@ -28,14 +28,20 @@ class TodoListTableViewCell: UITableViewCell {
         if todoSwitch.isOn {
             todoTitleLabel?.text = nil
             todoTitleLabel?.attributedText = todo.title.strikeThrough()
-            TodoList.completed(todo: todo, iscompleted: true)
+            TodoList.completed(todo: todo, isCompleted: true)
         } else {
             todoTitleLabel?.attributedText = nil
             todoTitleLabel?.text = todo.title
-            TodoList.completed(todo: todo, iscompleted: false)
+            TodoList.completed(todo: todo, isCompleted: false)
         }
         print("--------------------")
-        print(TodoList.justList)
+        print(TodoList.fullList)
+        
+        //값 변화되는 상황 보려고
+        print("--------------------")
+        print(">>>>\(String(describing: todoTitleLabel?.text))")
+        print("--------------------")
+        print(">>>>\(String(describing: todoTitleLabel?.attributedText))")
     }
     
     //완료상태이면 todoTitleLabel의 텍스트 대신 attributedText에 취소선 긋고 아니면 그냥 todo.title

@@ -18,27 +18,34 @@ struct Todo {
 
 //리스트 구조?
 struct TodoList {
-    //그냥 리스트?
-    static var justList: [Todo] = [
-        Todo(id: 0, title: "뭐 하기", isCompleted: true, dodate: ""),
+    //전체 리스트?
+    static var fullList: [Todo] = [
+        Todo(id: 0, title: "뭐 하기", isCompleted: false, dodate: ""),
         Todo(id: 1, title: "뭐", isCompleted: true, dodate: "")
     ]
     
     //완료처리?
-    static func completed(todo: Todo, iscompleted: Bool) {
-        for index in 0 ..< justList.count {
-            if justList[index].id == todo.id {
-                justList[index].isCompleted = iscompleted
+    static func completed(todo: Todo, isCompleted: Bool) {
+        for index in 0 ..< fullList.count {
+            if fullList[index].id == todo.id {
+                fullList[index].isCompleted = isCompleted
             }
         }
     }
     
     //완료 리스트?
     static func completList() -> [Todo] {
-        return justList.filter{ $0.isCompleted == true }
+        return fullList.filter{ $0.isCompleted == true }
     }
     
     //수정?
+    static func editTodo(todo: Todo, title: String) {
+        for index in 0 ..< fullList.count {
+            if fullList[index].id == todo.id {
+                fullList[index].title = title
+            }
+        }
+    }
     
     
     //삭제?

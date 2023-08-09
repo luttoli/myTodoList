@@ -31,45 +31,45 @@ class TodoListViewController: UIViewController {
     }
     
     //추가 버튼 클릭 시
-    @IBAction func addTodoClicked(_ sender: Any) {
-        let addTodoalert = UIAlertController(title: "할일 추가", message: nil, preferredStyle: .alert)
+    @IBAction func addClicked(_ sender: Any) {
+        let addAlert = UIAlertController(title: "할일 추가", message: nil, preferredStyle: .alert)
         
         //얼럿의 취소버튼
-        let cancelBtn = UIAlertAction(title: "취소", style: .cancel)
+        let addCancelBtn = UIAlertAction(title: "취소", style: .cancel)
         //얼럿의 추가버튼
-        let addBtn = UIAlertAction(title: "추가", style: .default, handler: { (_) in
-            //addTodoalert의 textFields[0]번째부터 채워라
-            guard let addTodotext = addTodoalert.textFields?[0].text else { return }
+        let addAddBtn = UIAlertAction(title: "추가", style: .default, handler: { (_) in
+            //addTodoalert의 textFields[0]의 텍스트를 가져와라
+            guard let addTodotext = addAlert.textFields?[0].text else { return }
             
             //Todo 구조체가 가진 id에 justList가 있는지 없는지 모르는 상태니까 해당 리스트의 마지막 id값에서 -1을 빼고 1을 더한 값을 id로, title에 addTodotext, iscompleted에 false를
-            let newlist = Todo(id: (TodoList.justList.last?.id ?? -1) + 1, title: addTodotext, isCompleted: false, dodate: "")
+            let newlist = Todo(id: (TodoList.fullList.last?.id ?? -1) + 1, title: addTodotext, isCompleted: false, dodate: "")
             
             //그걸 TodoList에 justList 배열에 추가한다.
-            TodoList.justList.append(newlist)
+            TodoList.fullList.append(newlist)
             
             //추가 애니메이션? 
-            self.todoTableView?.insertRows(at: [IndexPath(row: TodoList.justList.count - 1, section: 0)], with: .automatic)
+            self.todoTableView?.insertRows(at: [IndexPath(row: TodoList.fullList.count - 1, section: 0)], with: .automatic)
             
             //확인할라고(나중에 지우지 뭐)
-            print(TodoList.justList.count - 1)
+            print(TodoList.fullList.last?.id ?? -1)
             print("--------------------")
             print("입력: \(addTodotext)")
             print("--------------------")
-            print(TodoList.justList)
+            print(TodoList.fullList)
             print("--------------------")
             print("새로운 입력: \(newlist)")
             print("--------------------")
         })
         
         //버튼 노출
-        addTodoalert.addAction(cancelBtn)
-        addTodoalert.addAction(addBtn)
+        addAlert.addAction(addCancelBtn)
+        addAlert.addAction(addAddBtn)
         
         //얼럿 노출, 에니메이션 여부
-        self.present(addTodoalert, animated: true)
+        self.present(addAlert, animated: true)
         
         //TextField 추가
-        addTodoalert.addTextField() { (tf) in
+        addAlert.addTextField() { (tf) in
             tf.placeholder = "할일을 입력하고 추가하세요."
         }
     }
@@ -90,7 +90,7 @@ class TodoListViewController: UIViewController {
 extension TodoListViewController: UITableViewDataSource {
     //TableView 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TodoList.justList.count
+        return TodoList.fullList.count
     }
     
     //TableView Cell의 내용
@@ -100,8 +100,7 @@ extension TodoListViewController: UITableViewDataSource {
         }
         
         //justList 배열을 순서대로 setTodo로 변경해서 cell에 넣는다?
-        cell.setTodo(TodoList.justList[indexPath.row])
-        
+        cell.setTodo(TodoList.fullList[indexPath.row])
         return cell
     }
 }
