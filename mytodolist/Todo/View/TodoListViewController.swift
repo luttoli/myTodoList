@@ -23,7 +23,7 @@ class TodoListViewController: UIViewController {
         todoTableView.reloadData()
     }
     
-    //
+    //???
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -83,7 +83,6 @@ class TodoListViewController: UIViewController {
             }
         }
     }
-    
 }
 
 //TableView 상세적용

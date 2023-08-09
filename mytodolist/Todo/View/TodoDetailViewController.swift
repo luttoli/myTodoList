@@ -65,7 +65,7 @@ class TodoDetailViewController: UIViewController {
     
     //삭제하기
     @IBAction func removeClicked(_ sender: Any) {
-        let removeAlert = UIAlertController(title: "진짜로 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let removeAlert = UIAlertController(title: "정말로 삭제하시겠습니까?", message: nil, preferredStyle: .alert)
         
         //얼럿의 취소버튼
         let removeCancelBtn = UIAlertAction(title: "취소", style: .cancel)

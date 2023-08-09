@@ -26,7 +26,7 @@ class DoneListViewController: UIViewController {
     
     //카운트 노출
     func countList() -> String {
-        String(TodoList.completList().count)
+        String("\(TodoList.completList().count)개")
     }
 }
 

@@ -54,6 +54,35 @@ struct TodoList {
 }
 
 //던페이지 리스트 개수 -
-//기기저장
 //삭제 -
 //시간?
+
+//기기저장
+
+//func saveTodo() {
+//    let data = self.todo.map {
+//        [
+//            "id": $0.id,
+//            "title": $0.title,
+//            "isCompleted": $0.isCompleted,
+//            "dodate": $0.dodate
+//        ]
+//    }
+//    let userDefaults = UserDefaults.standard
+//    userDefaults.setValue(data, forKey: "todo")
+//}
+
+//기기저장 데이터로드
+
+//func loadTodo() {
+//    let userDefaults = UserDefaults.standard
+//    guard let data = userDefaults.object(forKey: "todo") as? [[String: Any]] else { return }
+//    self.todo = data.compactMap {
+//        guard let id = $0["id"] as? Int else { return nil }
+//        guard let title = $0["title"] as? String else { return nil }
+//        guard let isCompleted = $0["isCompleted"] as? Bool else { return nil }
+//        guard let dodate = $0["dodate"] as? String else { return nil }
+//
+//        return Todo(id: id, title: title, isCompleted: isCompleted, dodate: dodate)
+//    }
+//}
