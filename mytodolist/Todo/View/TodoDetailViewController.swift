@@ -20,7 +20,6 @@ class TodoDetailViewController: UIViewController {
         DetialTitleLabel.text = todo?.title
         completion()
         print("------>   \(String(describing: todo?.isCompleted))")
-//        CompletionLabel.text = String(describing: todo?.isCompleted)
     }
     
     //완료여부에 따라 출력
@@ -81,6 +80,4 @@ class TodoDetailViewController: UIViewController {
         //얼럿 노출, 에니메이션 여부
         self.present(removeAlert, animated: true)
     }
-    
-    
 }

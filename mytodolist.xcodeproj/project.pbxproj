@@ -24,6 +24,7 @@
 		B8D0C9BD2A7E1009007689A7 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9BC2A7E1009007689A7 /* Todo.swift */; };
 		B8D0C9C42A823FEB007689A7 /* DoneListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9C32A823FEB007689A7 /* DoneListTableViewCell.swift */; };
 		B8D0C9C62A84B514007689A7 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9C52A84B514007689A7 /* Extension.swift */; };
+		B8D0C9C82A8521F3007689A7 /* DoneDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D0C9C72A8521F3007689A7 /* DoneDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B8D0C9BC2A7E1009007689A7 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		B8D0C9C32A823FEB007689A7 /* DoneListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneListTableViewCell.swift; sourceTree = "<group>"; };
 		B8D0C9C52A84B514007689A7 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B8D0C9C72A8521F3007689A7 /* DoneDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			children = (
 				B816C56D2A7A7A9E00A3290F /* DoneListViewController.swift */,
 				B8D0C9C32A823FEB007689A7 /* DoneListTableViewCell.swift */,
+				B8D0C9C72A8521F3007689A7 /* DoneDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				B8D0C9BB2A7D32BB007689A7 /* TodoDetailViewController.swift in Sources */,
 				B816C5332A79282700A3290F /* HomeViewController.swift in Sources */,
 				B8D0C9C62A84B514007689A7 /* Extension.swift in Sources */,
+				B8D0C9C82A8521F3007689A7 /* DoneDetailViewController.swift in Sources */,
 				B816C52F2A79282700A3290F /* AppDelegate.swift in Sources */,
 				B816C5312A79282700A3290F /* SceneDelegate.swift in Sources */,
 				B816C56A2A7A795800A3290F /* TodoListTableViewCell.swift in Sources */,

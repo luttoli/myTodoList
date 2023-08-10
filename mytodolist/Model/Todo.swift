@@ -39,11 +39,20 @@ struct TodoList {
         return fullList.filter{ $0.isCompleted == true }
     }
     
-    //수정?
+    //타이틀 수정?
     static func editTodo(todo: Todo, title: String) {
         for index in 0 ..< fullList.count {
             if fullList[index].id == todo.id {
                 fullList[index].title = title
+            }
+        }
+    }
+    
+    //시간 수정?
+    static func timeeditTodo(todo: Todo, dodate: String) {
+        for index in 0 ..< fullList.count {
+            if fullList[index].id == todo.id {
+                fullList[index].dodate = dodate
             }
         }
     }
@@ -56,8 +65,8 @@ struct TodoList {
 
 //던페이지 리스트 개수 -
 //삭제 -
-//완료시간
-
+//완료시간 -
+//완료시간 수정하기!?
 
 //기기저장
 

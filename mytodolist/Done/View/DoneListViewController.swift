@@ -36,7 +36,19 @@ class DoneListViewController: UIViewController {
     func countList() -> String {
         String("\(TodoList.completList().count)개")
     }
-    //버튼처럼 아니게
+    
+    //카운트가 버튼처럼 아니게
+    
+    
+    //Cell 클릭 시
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? DoneListTableViewCell else { return }
+        if segue.identifier == "detail" {
+            if let vc = segue.destination as? DoneDetailViewController {
+                vc.todo = cell.todo
+            }
+        }
+    }
 }
 
 extension DoneListViewController: UITableViewDataSource {

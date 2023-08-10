@@ -51,7 +51,6 @@ class TodoListTableViewCell: UITableViewCell {
         if todo.isCompleted {
             todoTitleLabel?.text = nil
             todoTitleLabel?.attributedText = todo.title.strikeThrough()
-            
         } else {
             todoTitleLabel?.attributedText = nil
             todoTitleLabel?.text = todo.title
