@@ -209,7 +209,7 @@
             </objects>
             <point key="canvasLocation" x="271" y="-15"/>
         </scene>
-        <!--완료됨-->
+        <!--완료한일-->
         <scene sceneID="8n6-zX-otE">
             <objects>
                 <viewController id="5av-TE-34u" customClass="DoneListViewController" customModule="mytodolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -221,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="doneListCell" id="imi-Lt-FUX" customClass="DoneListTableViewCell" customModule="mytodolist" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="doneListCell" id="imi-Lt-FUX" customClass="DoneListTableViewCell" customModule="mytodolist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="imi-Lt-FUX" id="jhe-Td-GXC">
@@ -234,14 +234,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8월 10일 00시 00분" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tii-St-FFI">
+                                                    <rect key="frame" x="236.66666666666663" y="11.333333333333336" width="141.33333333333337" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ANe-eG-6lK" firstAttribute="centerY" secondItem="tii-St-FFI" secondAttribute="centerY" id="Gk6-gV-Q7F"/>
                                                 <constraint firstItem="ANe-eG-6lK" firstAttribute="centerY" secondItem="jhe-Td-GXC" secondAttribute="centerY" id="MYY-ow-1ec"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ANe-eG-6lK" secondAttribute="trailing" constant="20" symbolic="YES" id="fnf-z5-FKM"/>
+                                                <constraint firstAttribute="trailing" secondItem="tii-St-FFI" secondAttribute="trailing" constant="15" id="dBC-T0-cYm"/>
                                                 <constraint firstItem="ANe-eG-6lK" firstAttribute="leading" secondItem="jhe-Td-GXC" secondAttribute="leadingMargin" constant="15" id="jOR-B4-gKb"/>
+                                                <constraint firstItem="tii-St-FFI" firstAttribute="centerY" secondItem="jhe-Td-GXC" secondAttribute="centerY" id="sTm-hu-FlL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dodateLabel" destination="tii-St-FFI" id="6ri-L8-DAW"/>
                                             <outlet property="doneTitleLabel" destination="ANe-eG-6lK" id="LF8-gI-wQD"/>
                                         </connections>
                                     </tableViewCell>
@@ -257,8 +266,8 @@
                             <constraint firstItem="uaB-xU-s77" firstAttribute="trailing" secondItem="KRZ-th-uDp" secondAttribute="trailing" id="vHt-dO-YKk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="완료됨" id="C6v-af-Lu4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="j1z-Xj-dDF">
+                    <navigationItem key="navigationItem" title="완료한일" id="C6v-af-Lu4">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="j1z-Xj-dDF">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>

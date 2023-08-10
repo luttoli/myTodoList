@@ -20,15 +20,16 @@ struct Todo {
 struct TodoList {
     //전체 리스트?
     static var fullList: [Todo] = [
-        Todo(id: 0, title: "뭐 하기", isCompleted: false, dodate: ""),
-        Todo(id: 1, title: "뭐", isCompleted: true, dodate: "")
+        Todo(id: 0, title: "뭐 하기", isCompleted: true, dodate: "8월 10일 (목) 18:30"),
+        Todo(id: 1, title: "뭐", isCompleted: true, dodate: "8월 10일 (목) 18:30")
     ]
     
     //완료처리?
-    static func completed(todo: Todo, isCompleted: Bool) {
+    static func completed(todo: Todo, isCompleted: Bool, dodate: String) {
         for index in 0 ..< fullList.count {
             if fullList[index].id == todo.id {
                 fullList[index].isCompleted = isCompleted
+                fullList[index].dodate = dodate
             }
         }
     }
@@ -55,7 +56,8 @@ struct TodoList {
 
 //던페이지 리스트 개수 -
 //삭제 -
-//시간?
+//완료시간
+
 
 //기기저장
 

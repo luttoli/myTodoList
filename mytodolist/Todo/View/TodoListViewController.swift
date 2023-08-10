@@ -29,7 +29,7 @@ class TodoListViewController: UIViewController {
         
         self.todoTableView?.reloadData()
     }
-    
+
     //추가 버튼 클릭 시
     @IBAction func addClicked(_ sender: Any) {
         let addAlert = UIAlertController(title: "할일 추가", message: nil, preferredStyle: .alert)
@@ -42,7 +42,7 @@ class TodoListViewController: UIViewController {
             guard let addTodotext = addAlert.textFields?[0].text else { return }
             
             //Todo 구조체가 가진 id에 justList가 있는지 없는지 모르는 상태니까 해당 리스트의 마지막 id값에서 -1을 빼고 1을 더한 값을 id로, title에 addTodotext, iscompleted에 false를
-            let newlist = Todo(id: (TodoList.fullList.last?.id ?? -1) + 1, title: addTodotext, isCompleted: false, dodate: "")
+            let newlist = Todo(id: (TodoList.fullList.last?.id ?? -1) + 1, title: addTodotext, isCompleted: false, dodate: Date().dateTime())
             
             //그걸 TodoList에 justList 배열에 추가한다.
             TodoList.fullList.append(newlist)

@@ -31,7 +31,6 @@ class TodoDetailViewController: UIViewController {
         } else {
             CompletionLabel.text = "완료전"
         }
-
     }
     
     //타이틀 수정하기
@@ -40,8 +39,8 @@ class TodoDetailViewController: UIViewController {
         
         //얼럿의 취소버튼
         let editCancelBtn = UIAlertAction(title: "취소", style: .cancel)
-        //얼럿의 추가버튼
-        let editAddBtn = UIAlertAction(title: "추가", style: .default) {[weak self] _ in
+        //얼럿의 수정버튼
+        let editAddBtn = UIAlertAction(title: "수정", style: .default) {[weak self] _ in
             guard let self, let todo else { return }
             if let title = editAlert.textFields?.first?.text,
                 !title.isEmpty {

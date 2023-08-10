@@ -22,12 +22,21 @@ class DoneListViewController: UIViewController {
         
         //카운트 노출
         listCount.title = countList()
+        
+    }
+    
+    //???
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.doneTableView?.reloadData()
     }
     
     //카운트 노출
     func countList() -> String {
         String("\(TodoList.completList().count)개")
     }
+    //버튼처럼 아니게
 }
 
 extension DoneListViewController: UITableViewDataSource {
