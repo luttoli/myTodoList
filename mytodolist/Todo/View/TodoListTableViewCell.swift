@@ -34,10 +34,10 @@ class TodoListTableViewCell: UITableViewCell {
             todoTitleLabel?.text = todo.title
             TodoList.completed(todo: todo, isCompleted: false, dodate: Date().dateTime())
         }
-        print("--------------------")
-        print(TodoList.fullList)
         
         //값 변화되는 상황 보려고
+        print("--------------------")
+        print(TodoList.fullList)
         print("--------------------")
         print(">>>>\(String(describing: todoTitleLabel?.text))")
         print("--------------------")
@@ -47,7 +47,7 @@ class TodoListTableViewCell: UITableViewCell {
     //완료상태이면 todoTitleLabel의 텍스트 대신 attributedText에 취소선 긋고 아니면 그냥 todo.title
     func setTodo(_ _todo: Todo) {
         todo = _todo
-        guard var todo else { return }
+        guard let todo else { return }
         if todo.isCompleted {
             todoTitleLabel?.text = nil
             todoTitleLabel?.attributedText = todo.title.strikeThrough()
@@ -58,4 +58,3 @@ class TodoListTableViewCell: UITableViewCell {
         todoSwitch.isOn = todo.isCompleted
     }
 }
-

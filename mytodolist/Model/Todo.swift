@@ -9,7 +9,7 @@ import Foundation
 
 //할일 구조체
 struct Todo {
-    //순서?
+    //순서가 필요하겠구나..
     var id: Int
     var title: String
     var isCompleted: Bool
@@ -18,10 +18,13 @@ struct Todo {
 
 //리스트 구조?
 struct TodoList {
-    //전체 리스트?
+    //전체 리스트 + 가라데이터?
     static var fullList: [Todo] = [
-        Todo(id: 0, title: "뭐 하기", isCompleted: true, dodate: "8월 10일 (목) 18:30"),
-        Todo(id: 1, title: "뭐", isCompleted: true, dodate: "8월 10일 (목) 18:30")
+        Todo(id: 0, title: "과제하기", isCompleted: true, dodate: "8월 11일 (목) 12:30"),
+        Todo(id: 1, title: "과제 제출하기", isCompleted: true, dodate: "8월 11일 (금) 13:55"),
+        Todo(id: 2, title: "피커뷰 구현하기", isCompleted: false, dodate: ""),
+        Todo(id: 3, title: "기기 저장 구현하기", isCompleted: false, dodate: ""),
+        Todo(id: 4, title: "과제 제출해도 못한건 하기", isCompleted: false, dodate: "")
     ]
     
     //완료처리?
@@ -62,38 +65,3 @@ struct TodoList {
         fullList.removeAll(where: { $0.id == todo.id })
     }
 }
-
-//던페이지 리스트 개수 -
-//삭제 -
-//완료시간 -
-//완료시간 수정하기!?
-
-//기기저장
-
-//func saveTodo() {
-//    let data = self.todo.map {
-//        [
-//            "id": $0.id,
-//            "title": $0.title,
-//            "isCompleted": $0.isCompleted,
-//            "dodate": $0.dodate
-//        ]
-//    }
-//    let userDefaults = UserDefaults.standard
-//    userDefaults.setValue(data, forKey: "todo")
-//}
-
-//기기저장 데이터로드
-
-//func loadTodo() {
-//    let userDefaults = UserDefaults.standard
-//    guard let data = userDefaults.object(forKey: "todo") as? [[String: Any]] else { return }
-//    self.todo = data.compactMap {
-//        guard let id = $0["id"] as? Int else { return nil }
-//        guard let title = $0["title"] as? String else { return nil }
-//        guard let isCompleted = $0["isCompleted"] as? Bool else { return nil }
-//        guard let dodate = $0["dodate"] as? String else { return nil }
-//
-//        return Todo(id: id, title: title, isCompleted: isCompleted, dodate: dodate)
-//    }
-//}

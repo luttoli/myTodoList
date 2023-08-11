@@ -109,6 +109,5 @@ extension TodoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         todoTableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 

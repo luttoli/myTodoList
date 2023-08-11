@@ -65,6 +65,4 @@ extension DoneListViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
 }
